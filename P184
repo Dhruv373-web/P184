@@ -1,0 +1,99 @@
+From react:
+○ React, Component
+● Form react-native:
+Image, View
+StyleSheet for:
+● Upper Container: App Name
+● Middle Container: Camera Section
+● Lower container: Top and Bottom Lower Containers
+Filters images Container
+● Category Container
+{
+
+face: {
+bounds: {
+size: { width: faceWidth, height: faceHeight }
+},
+leftEyePosition,
+rightEyePosition,
+noseBasePosition
+}
+○ width,
+○ height,
+○ left,
+○ right,
+○ top
+}
+From react:
+○ React, Component
+● Form react-native:
+○ StyleSheet, Text, View, SafeAreaView, Platform, Image, ScrollView,
+TouchableOpacity
+
+● From react-native-responsive-fontzie:
+○ RFPercentage, RFValue
+From expo-camera:
+export default class Main extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            hasCameraPermission: null,
+            faces: [],
+            current_filter: "filter_1",
+            selected: "aviator"
+        }
+ 
+○ Camera
+● From expo-face-detector:1.2,
+○ FaceDetector
+● From expo-status-bar:
+StatusBar
+"imageFilter_id_1": {
+src: require("../assets/imageFilter1.png"),
+width: 3.5,
+height: 0.7,
+left: 0.46,
+right: 0.15,
+top: 1.5
+},
+"imageFilter_id_2": {
+src: require("../assets/imageFilter2.png"),
+width: 3.5,
+height:1.2,
+left: 0.46,
+right: 0.15,
+right: 0.15,
+top: 0.7
+};
+}
+{
+category1: [
+{ id: “imageFilter_id_1”, src: “./assets/imageFilter1.png”},
+{ id: “imageFilter_id_2”, src: “./assets/imageFilter2.png”},
+{ id: “imageFilter_id_4”, src: “./assets/imageFilter4.png”}
+],
+category2: [
+{ id:“imageFilter_id_3”,src: “./assets/imageFilter3.png”},
+]
+}
+render() {
+        const { hasCameraPermission } = this.state;
+        if (hasCameraPermission === null) {
+            return <View />
+        }
+        if (hasCameraPermission === false) {
+            return (
+                <View style={styles.container}>
+                    <Text>No access to camera</Text>
+                </View>
+            )
+        }
+  componentDidMount() {
+        Permissions
+            .askAsync(Permissions.CAMERA)
+            .then(this.onCameraPermission)
+    }
+ onFacesDetected({ faces }) {
+        this.setState({ faces: faces })
+    }
+    
